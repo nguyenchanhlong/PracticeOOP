@@ -90,22 +90,25 @@ class Rules:
             for result in lst_b:
                 if results == result:
                     lst_r_b.append(results)
+
+
         for i, lst in enumerate(lst_r_u_u, start=1):
             common_elements_u[f"lst_r_u{i}"] = [item for item in lst if item in lst_r_u]
         # Find the list(s) with the most common elements
         max_common_u = max(common_elements_u, key=lambda k: len(common_elements_u[k]))
 
-        print(f"{max_common_u} is the winner with common elements: {common_elements_u[max_common_u]}")
-
         for i, lst in enumerate(lst_r_b_b, start=1):
-            common_elements_b[f"lst_r_u{i}"] = [item for item in lst if item in lst_r_b]
+            common_elements_b[f"lst_r_b{i}"] = [item for item in lst if item in lst_r_b]
         # Find the list(s) with the most common elements
         max_common_b = max(common_elements_b, key=lambda k: len(common_elements_b[k]))
-
-        print(f"{max_common_b} is the winner with common elements: {common_elements_b[max_common_b]}")
-    
-
-
+        while True:
+            if len(common_elements_u[max_common_u]) == 3:
+                print(f"User is the winner with common elements: {common_elements_u[max_common_u]}")
+                break
+            elif len(common_elements_b[max_common_b]) == 3:
+                print(f"Boot is the winner with common elements: {common_elements_b[max_common_b]}")
+                break
+            break
 
 if __name__ == '__main__':
     b = BC()
